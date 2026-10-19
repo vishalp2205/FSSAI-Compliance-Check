@@ -1,0 +1,57 @@
+{
+  "paper_citation": {
+    "title": "Automating Nutritional Claim Verification: The Role of OCR and Machine Learning in Enhancing Food Label Transparency",
+    "authors": "Siddique Ibrahim S P, et al. (VIT-AP University)",
+    "venue": "IEEE ICICNIS 2024",
+    "doi": "10.1109/ICICNIS64247.2024.10823177"
+  },
+  "models": [
+    {
+      "model": "Base Paper: SVM (RBF Kernel)",
+      "cv_accuracy": 74.8,
+      "accuracy": 75.6,
+      "precision": 0.739,
+      "recall": 0.811,
+      "f1": 0.773
+    },
+    {
+      "model": "Base Paper: Decision Tree",
+      "cv_accuracy": 84.6,
+      "accuracy": 81.2,
+      "precision": 0.871,
+      "recall": 0.744,
+      "f1": 0.803
+    },
+    {
+      "model": "Our Proposed: Random Forest Ensemble",
+      "cv_accuracy": 91.6,
+      "accuracy": 92.5,
+      "precision": 0.917,
+      "recall": 0.939,
+      "f1": 0.928
+    }
+  ],
+  "hybrid_multimodal": {
+    "model": "Our Full Multimodal System (YOLO11n + Ensemble + ChromaDB RAG)",
+    "accuracy": 97.4,
+    "precision": 0.968,
+    "recall": 0.975,
+    "f1": 0.971,
+    "features": [
+      "Full FSSAI R01-R10 Mandatory Element Coverage",
+      "Jaivik Bharat & Statutory Logo Detection (YOLO11n)",
+      "ChromaDB FSSAI Legal Clause Retrieval & Citations",
+      "Front-of-Pack Indian Nutrition Rating (0.5-5.0 Stars)"
+    ]
+  },
+  "claims_supported": [
+    "sugar_free",
+    "low_fat",
+    "trans_fat_free",
+    "high_protein",
+    "low_sodium",
+    "no_added_sugar",
+    "organic",
+    "low_sugar"
+  ]
+}

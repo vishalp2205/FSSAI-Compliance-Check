@@ -1,0 +1,13 @@
+# FSSAI Symbol Detection — YOLO11n Dataset Configuration
+# Per project report §5.2: YOLO11n fine-tuned on 3 classes
+
+path: ./backend/data/yolo_dataset
+train: images/train
+val: images/val
+
+# Classes per report §5.2
+nc: 3
+names:
+  0: veg_mark
+  1: non_veg_mark
+  2: fssai_logo

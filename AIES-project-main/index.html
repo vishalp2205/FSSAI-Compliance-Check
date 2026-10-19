@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FSSAI Label Auditor — Explainable Multimodal Compliance System</title>
+  <meta name="description" content="AI-powered explainable multimodal system for automated FSSAI food label compliance auditing using YOLO11n, OCR, deterministic rules (R01-R10), and RAG." />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <!-- ============ TOP NAV ============ -->
+  <nav id="top-nav">
+    <div class="nav-brand">
+      <div class="nav-logo">
+        <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="url(#navGrad)" stroke-width="2.5"/><path d="M10 20 L16 10 L22 20 Z" fill="url(#navGrad)"/><defs><linearGradient id="navGrad" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#34d399"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+      </div>
+      <span class="nav-title">FSSAI Label Auditor</span>
+      <span class="nav-badge">CONNECTING...</span>
+    </div>
+    <div class="nav-links">
+      <a href="#upload-section" class="nav-link active">Audit</a>
+      <a href="#how-it-works" class="nav-link">Architecture</a>
+      <a href="#regulations" class="nav-link">Regulations (R01–R10)</a>
+      <button id="nav-history-btn" class="nav-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Audit Trail (FR8)
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header id="hero">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-chip"><span class="chip-dot"></span> Multimodal AI + Grounded RAG Compliance Engine</div>
+      <h1>Explainable FSSAI<br/>Food Label <span class="gradient-text">Compliance Auditor</span></h1>
+      <p class="hero-subtitle">Automated structural compliance auditing and public health profiling of packaged food labels against the <strong>FSSAI Labelling & Display Regulations, 2020</strong> and <strong>Advertising & Claims Mandates</strong>. Powered by fine-tuned <strong>YOLO11n</strong> for statutory symbol detection, <strong>EasyOCR</strong>, an expert rule engine (R01–R10), <strong>ChromaDB Clause-Level RAG</strong>, <strong>ML Claim Verification</strong>, and <strong>Indian Nutrition Rating (INR 5-Star)</strong> health profiling.</p>
+      <div class="hero-actions">
+        <a href="#upload-section" class="btn btn-primary btn-lg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Audit Label Now
+        </a>
+        <a href="#how-it-works" class="btn btn-ghost btn-lg">System Architecture</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">10</span><span class="stat-label">Statutory Rules (R01–R10)</span></div>
+        <div class="stat"><span class="stat-num">YOLO11n</span><span class="stat-label">Symbol & Logo Vision</span></div>
+        <div class="stat"><span class="stat-num">RAG</span><span class="stat-label">ChromaDB Clause Grounding</span></div>
+        <div class="stat"><span class="stat-num">ML Claims</span><span class="stat-label">Greenwashing Verifier</span></div>
+        <div class="stat"><span class="stat-num">INR 5★</span><span class="stat-label">FSSAI Health Rating</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ UPLOAD SECTION ============ -->
+  <section id="upload-section">
+    <div class="section-header">
+      <h2>Upload & Audit Packaging</h2>
+      <p>Drop or select a food packaging photograph or scan to begin clause-by-clause regulatory analysis</p>
+    </div>
+
+    <div class="audit-workspace">
+      <!-- Left: Upload Area -->
+      <div class="upload-panel">
+        <div id="drop-zone" class="drop-zone">
+          <div class="drop-zone-content">
+            <div class="upload-icon-wrap">
+              <svg viewBox="0 0 48 48" fill="none" width="48" height="48">
+                <rect x="4" y="4" width="40" height="40" rx="8" stroke="url(#upGrad)" stroke-width="2" stroke-dasharray="4 3"/>
+                <path d="M24 32V18M24 18l-6 6M24 18l6 6" stroke="url(#upGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs><linearGradient id="upGrad" x1="4" y1="4" x2="44" y2="44"><stop stop-color="#34d399"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+              </svg>
+            </div>
+            <p class="drop-text">Drag & drop your food label image here</p>
+            <p class="drop-hint">Supports JPG, PNG, WebP · Click to browse</p>
+            <button type="button" id="load-sample-btn" class="btn btn-sm btn-ghost" style="margin-top: 0.85rem; border-color: rgba(56, 189, 248, 0.4); color: var(--accent-cyan); font-weight: 600; padding: 0.4rem 1rem;">
+              🍪 Load Sample Food Label (test_label.jpg)
+            </button>
+            <input type="file" id="file-input" accept="image/*" hidden />
+          </div>
+        </div>
+
+        <!-- Preview -->
+        <div id="preview-area" class="preview-area hidden">
+          <div class="preview-header">
+            <h3>Visual Inspection & Detection Overlays</h3>
+            <div class="preview-actions">
+              <button id="clear-btn" class="btn btn-sm btn-ghost">Change Image</button>
+            </div>
+          </div>
+          
+          <div class="preview-img-container" id="preview-container">
+            <img id="preview-img" alt="Uploaded food label" />
+            <canvas id="bbox-canvas"></canvas>
+          </div>
+
+          <!-- Bounding Box Toggles -->
+          <div class="detection-toggles" id="detection-toggles">
+            <label class="toggle-chip">
+              <input type="checkbox" id="toggle-yolo" checked />
+              <span class="chip-color chip-yolo"></span>
+              <span>YOLO Symbols & Logos</span>
+            </label>
+            <label class="toggle-chip">
+              <input type="checkbox" id="toggle-ocr" />
+              <span class="chip-color chip-ocr"></span>
+              <span>OCR Text Regions</span>
+            </label>
+          </div>
+
+          <button id="analyze-btn" class="btn btn-primary btn-full">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Run Full Compliance Audit (R01–R10)
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: Results Panel -->
+      <div id="results-panel" class="results-panel">
+        <div class="results-placeholder">
+          <svg viewBox="0 0 64 64" fill="none" width="64" height="64" opacity="0.3">
+            <rect x="8" y="8" width="48" height="48" rx="8" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="16" y1="22" x2="48" y2="22" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="16" y1="30" x2="40" y2="30" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="16" y1="38" x2="44" y2="38" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="16" y1="46" x2="36" y2="46" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <p>Audit results will appear here</p>
+          <span>Upload and analyze a label image to begin inspection</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESSING OVERLAY ============ -->
+  <div id="processing-overlay" class="processing-overlay hidden">
+    <div class="processing-card">
+      <div class="processing-spinner"></div>
+      <h3 id="processing-title">Running Multimodal Pipeline...</h3>
+      <p id="processing-step">YOLO11n Symbol Detection + OCR + RAG</p>
+      <div class="processing-bar"><div id="processing-fill" class="processing-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- ============ AUDIT TRAIL MODAL (FR8) ============ -->
+  <div id="audit-modal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3>📜 Historical Audit Trail (FR8)</h3>
+          <p class="modal-sub">Persistent timestamped audit trail stored in backend/data/audit_logs/</p>
+        </div>
+        <button id="close-modal-btn" class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <div class="loading-state">Loading audit logs...</div>
+      </div>
+      <div class="modal-footer">
+        <a id="download-logs-btn" href="http://localhost:8000/api/audit-logs/export" target="_blank" class="btn btn-ghost btn-sm">
+          Download All Logs (JSON)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SYSTEM ARCHITECTURE (§4) ============ -->
+  <section id="how-it-works">
+    <div class="section-header">
+      <h2>System Architecture & Pipeline Workflow</h2>
+      <p>End-to-end multimodal pipeline: Computer vision perception, expert rule governance, RAG explainability, and ML public health profiling</p>
+    </div>
+
+    <!-- 6-Stage Pipeline Flow -->
+    <div class="pipeline-flow">
+      <div class="flow-step">
+        <div class="flow-step-header">
+          <span class="step-num">STAGE 01</span>
+          <span class="step-badge">Preprocess</span>
+        </div>
+        <div class="step-icon">📸</div>
+        <h4>Vision Preprocessing</h4>
+        <p>OpenCV CLAHE contrast optimization, Hough line deskewing, bilateral denoising, and LAB color space normalization.</p>
+        <div class="step-tech-tag">OpenCV 4.10 · CLAHE</div>
+      </div>
+
+      <div class="flow-connector">→</div>
+
+      <div class="flow-step">
+        <div class="flow-step-header">
+          <span class="step-num">STAGE 02</span>
+          <span class="step-badge">Perception</span>
+        </div>
+        <div class="step-icon">👁️</div>
+        <h4>Multimodal Perception</h4>
+        <p>Fine-tuned <strong>YOLO11n</strong> detects Veg/Non-Veg marks & FSSAI emblems. <strong>EasyOCR</strong> extracts dense multilingual packaging text.</p>
+        <div class="step-tech-tag">YOLO11n · EasyOCR</div>
+      </div>
+
+      <div class="flow-connector">→</div>
+
+      <div class="flow-step">
+        <div class="flow-step-header">
+          <span class="step-num">STAGE 03</span>
+          <span class="step-badge">Extraction</span>
+        </div>
+        <div class="step-icon">📑</div>
+        <h4>Canonical Schema</h4>
+        <p>Regex & NER transform unstructured text into structured schema (§5.3): 14-digit license, batch, dates, allergens, and 9 core nutrients.</p>
+        <div class="step-tech-tag">Regex NER · §5.3 Schema</div>
+      </div>
+
+      <div class="flow-connector">→</div>
+
+      <div class="flow-step">
+        <div class="flow-step-header">
+          <span class="step-num">STAGE 04</span>
+          <span class="step-badge">Compliance</span>
+        </div>
+        <div class="step-icon">⚖️</div>
+        <h4>Rule Engine (R01–R10)</h4>
+        <p>Deterministic expert rule base evaluates exact statutory compliance with HSV color verification and mutual exclusivity.</p>
+        <div class="step-tech-tag">Expert Engine · FSSAI 2020</div>
+      </div>
+
+      <div class="flow-connector">→</div>
+
+      <div class="flow-step">
+        <div class="flow-step-header">
+          <span class="step-num">STAGE 05</span>
+          <span class="step-badge">Grounding</span>
+        </div>
+        <div class="step-icon">🧠</div>
+        <h4>ChromaDB RAG Grounding</h4>
+        <p>Dense retrieval embeds queries via <code>all-MiniLM-L6-v2</code> to cite exact FSSAI legal gazette clauses and remediation steps.</p>
+        <div class="step-tech-tag">ChromaDB · all-MiniLM-L6</div>
+      </div>
+
+      <div class="flow-connector">→</div>
+
+      <div class="flow-step">
+        <div class="flow-step-header">
+          <span class="step-num">STAGE 06</span>
+          <span class="step-badge">Public Health</span>
+        </div>
+        <div class="step-icon">⭐</div>
+        <h4>Claims & INR Profiler</h4>
+        <p>Trained ML ensemble verifies marketing claims per FSSAI 2022 standards and predicts official <strong>Indian Nutrition Rating (0.5–5.0 Stars)</strong> & HFSS risk.</p>
+        <div class="step-tech-tag">Ensemble · INR 5★ Regressor</div>
+      </div>
+    </div>
+
+    <!-- Current Technology Stack Grid -->
+    <div class="tech-stack-container">
+      <div class="tech-stack-title">
+        <span class="tech-stack-chip">SYSTEM SPECIFICATIONS</span>
+        <h3>Current Production Stack & Architectural Layers</h3>
+        <p>Unified multimodal compliance infrastructure combining deep learning, deterministic regulation, and semantic knowledge retrieval</p>
+      </div>
+
+      <div class="arch-grid">
+        <!-- Card 1 -->
+        <div class="arch-card">
+          <div class="arch-card-top">
+            <span class="arch-icon">👁️</span>
+            <div>
+              <h4>Computer Vision Layer</h4>
+              <span class="arch-sub">Ultralytics YOLO11n & OpenCV 4.10</span>
+            </div>
+          </div>
+          <p class="arch-desc">Object detection model fine-tuned on FMCG packaging dataset. Detects statutory marks with high mAP50.</p>
+          <ul class="arch-list">
+            <li><strong>Veg / Non-Veg Marks:</strong> Green circle in square vs brown triangle</li>
+            <li><strong>FSSAI Official Insignia:</strong> Statutory license logo presence</li>
+            <li><strong>Jaivik Bharat Mark:</strong> Statutory organic certification logo</li>
+            <li><strong>Image Pipeline:</strong> CLAHE, Hough deskewing, HSV mask extraction</li>
+          </ul>
+          <div class="arch-pills">
+            <span class="arch-pill">YOLO11n</span>
+            <span class="arch-pill">PyTorch</span>
+            <span class="arch-pill">OpenCV 4.10</span>
+            <span class="arch-pill">HSV Space</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="arch-card">
+          <div class="arch-card-top">
+            <span class="arch-icon">📝</span>
+            <div>
+              <h4>OCR & Information Extraction</h4>
+              <span class="arch-sub">EasyOCR + Tesseract + Canonical Parser</span>
+            </div>
+          </div>
+          <p class="arch-desc">Multilingual dense optical character recognition with rule-based Named Entity Recognition (NER).</p>
+          <ul class="arch-list">
+            <li><strong>Listing 1 Schema (§5.3):</strong> Strict JSON schema normalization</li>
+            <li><strong>Statutory Regex:</strong> 14-digit FSSAI license & State code (01–37)</li>
+            <li><strong>Date & Batch Parser:</strong> Mfg, Expiry, Best Before parsing</li>
+            <li><strong>Nutritional Parser:</strong> Extracts 9 core mandatory nutrient values / 100g</li>
+          </ul>
+          <div class="arch-pills">
+            <span class="arch-pill">EasyOCR</span>
+            <span class="arch-pill">Tesseract</span>
+            <span class="arch-pill">Regex NER</span>
+            <span class="arch-pill">JSON Schema</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="arch-card">
+          <div class="arch-card-top">
+            <span class="arch-icon">⚖️</span>
+            <div>
+              <h4>Statutory Rule Engine</h4>
+              <span class="arch-sub">FSSAI Labelling & Display Regulations 2020</span>
+            </div>
+          </div>
+          <p class="arch-desc">Deterministic expert system executing clauses R01 through R10 with zero-hallucination tolerance.</p>
+          <ul class="arch-list">
+            <li><strong>R01–R03:</strong> License length, valid state code & packaging presence</li>
+            <li><strong>R04–R06:</strong> Logo & dietary mark presence with HSV color checks</li>
+            <li><strong>R07–R08:</strong> Mark vs ingredient consistency & 8 mandatory allergens</li>
+            <li><strong>R09–R10:</strong> Date marking & 9-nutrient mandatory panel completeness</li>
+          </ul>
+          <div class="arch-pills">
+            <span class="arch-pill">Rules R01–R10</span>
+            <span class="arch-pill">Deterministic</span>
+            <span class="arch-pill">FSSAI 2020</span>
+            <span class="arch-pill">Strict Bounds</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="arch-card">
+          <div class="arch-card-top">
+            <span class="arch-icon">🧠</span>
+            <div>
+              <h4>Clause-Level RAG Engine</h4>
+              <span class="arch-sub">ChromaDB + Sentence-Transformers</span>
+            </div>
+          </div>
+          <p class="arch-desc">Explainable AI layer providing verbatim legal citations from official FSSAI gazette notifications.</p>
+          <ul class="arch-list">
+            <li><strong>Vector Embeddings:</strong> 384-dim dense vectors via <code>all-MiniLM-L6-v2</code></li>
+            <li><strong>Indexed Knowledge:</strong> 22 chunks covering 7 FSSAI Gazette chapters</li>
+            <li><strong>Explainability:</strong> Exact clause citations (e.g., Reg. 5(4)(b), Sched. I)</li>
+            <li><strong>Remediation:</strong> Actionable corrective steps for non-compliant packaging</li>
+          </ul>
+          <div class="arch-pills">
+            <span class="arch-pill">ChromaDB</span>
+            <span class="arch-pill">all-MiniLM-L6-v2</span>
+            <span class="arch-pill">Semantic RAG</span>
+            <span class="arch-pill">Gazette 2020</span>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="arch-card">
+          <div class="arch-card-top">
+            <span class="arch-icon">🏷️</span>
+            <div>
+              <h4>Claims & Greenwashing AI</h4>
+              <span class="arch-sub">Scikit-Learn Machine Learning Ensemble</span>
+            </div>
+          </div>
+          <p class="arch-desc">Automated validation of front-of-pack claims against Schedule I Advertising & Claims Regulations 2018/2022.</p>
+          <ul class="arch-list">
+            <li><strong>Ensemble Architecture:</strong> Random Forest (92.5% acc) + SVM + DT</li>
+            <li><strong>Verified Claims:</strong> Sugar-Free, Trans-Fat Free, Cholesterol, Organic</li>
+            <li><strong>Cross-Validation:</strong> 5-fold stratified cross-validation on FMCG dataset</li>
+            <li><strong>Multimodal Verification:</strong> Combines nutrient thresholds with YOLO marks</li>
+          </ul>
+          <div class="arch-pills">
+            <span class="arch-pill">Random Forest</span>
+            <span class="arch-pill">SVM</span>
+            <span class="arch-pill">Decision Tree</span>
+            <span class="arch-pill">Scikit-Learn</span>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="arch-card">
+          <div class="arch-card-top">
+            <span class="arch-icon">⭐</span>
+            <div>
+              <h4>Indian Nutrition Rating (INR) & HFSS</h4>
+              <span class="arch-sub">Public Health Regressor & Profiler</span>
+            </div>
+          </div>
+          <p class="arch-desc">Evaluates overall healthfulness on a 0.5 to 5.0 Star scale and flags High in Fat, Sugar, Salt (HFSS) risks.</p>
+          <ul class="arch-list">
+            <li><strong>INR Star Rating:</strong> FSSAI Baseline negative score vs positive score (R² = 0.924)</li>
+            <li><strong>Negative Nutrients:</strong> Energy density, Saturated Fat, Total Sugar, Sodium</li>
+            <li><strong>HFSS Warning:</strong> Red traffic light alerts for exceeding threshold per 100g</li>
+            <li><strong>Front-of-Pack Label (FOPL):</strong> Prepared for impending mandatory star labelling</li>
+          </ul>
+          <div class="arch-pills">
+            <span class="arch-pill">INR 0.5–5★</span>
+            <span class="arch-pill">HFSS Profiler</span>
+            <span class="arch-pill">Traffic Light</span>
+            <span class="arch-pill">FSSAI Draft</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REGULATIONS CATALOGUE (R01–R10) ============ -->
+  <section id="regulations">
+    <div class="section-header">
+      <h2>FSSAI 2020 Statutory Rule Catalogue (R01–R10)</h2>
+      <p>Mapped to Food Safety and Standards (Labelling and Display) Regulations, 2020 & Gazette Amendments</p>
+    </div>
+
+    <div class="reg-grid">
+      <div class="reg-card">
+        <div class="reg-icon-wrap reg-license">R01</div>
+        <h4>License Format</h4>
+        <p>Must be exactly 14 digits starting with 1 (Central) or 2 (State).</p>
+        <code class="reg-pattern">^[12]\d{13}$</code>
+      </div>
+      <div class="reg-card">
+        <div class="reg-icon-wrap reg-license">R02</div>
+        <h4>License State Code</h4>
+        <p>Digits 2–3 must map to an authorized Indian state code (01–37).</p>
+        <code class="reg-pattern">State Code Verification</code>
+      </div>
+      <div class="reg-card">
+        <div class="reg-icon-wrap reg-license">R03</div>
+        <h4>License Presence</h4>
+        <p>14-digit candidate must appear prominently on the packaging.</p>
+        <code class="reg-pattern">Mandatory Presence</code>
+      </div>
+      <div class="reg-card">
+        <div class="reg-icon-wrap reg-dietary">R04</div>
+        <h4>FSSAI Logo Verification</h4>
+        <p>Statutory FSSAI insignia detected via YOLO11n object detection.</p>
+        <code class="reg-pattern">YOLO11n Class 2</code>
+      </div>
+      <div class="reg-card">
+        <div class="reg-icon-wrap reg-dietary">R05</div>
+        <h4>Dietary Mark Present</h4>
+        <p>Mandatory declaration of Vegetarian or Non-Vegetarian status.</p>
+        <code class="reg-pattern">YOLO11n Class 0/1</code>
+      </div>
+      <div class="reg-card">
+        <div class="reg-icon-wrap reg-dietary">R06</div>
+        <h4>Dietary Mark Colour</h4>
+        <p>Veg = Green circle in green square. Non-Veg = Brown triangle in brown square.</p>
+        <code class="reg-pattern">HSV Space Validation</code>
+      </div>
+      <div class="reg-card">
+        <div class="reg-icon-wrap reg-allergen">R07</div>
+        <h4>Mark vs Ingredients Conflict</h4>
+        <p>Cross-verification ensuring Veg marks contain no animal-derived ingredients.</p>
+        <code class="reg-pattern">Cross-Consistency</code>
+      </div>
+      <div class="reg-card">
+        <div class="reg-icon-wrap reg-allergen">R08</div>
+        <h4>Allergen Declaration</h4>
+        <p>Mandatory declaration of 8 major allergens in a dedicated "Contains" line.</p>
+        <code class="reg-pattern">Regulation 6 (8 Classes)</code>
+      </div>
+      <div class="reg-card">
+        <div class="reg-icon-wrap reg-date">R09</div>
+        <h4>Date Marking</h4>
+        <p>Explicit "Use by Date", "Expiry Date", or "Best Before" with valid date.</p>
+        <code class="reg-pattern">Regulation 7 Date Check</code>
+      </div>
+      <div class="reg-card">
+        <div class="reg-icon-wrap reg-nutrition">R10</div>
+        <h4>Nutritional Information Panel</h4>
+        <p>Energy, Protein, Carbs, Total/Added Sugars, Fat, Saturated/Trans Fat, Sodium.</p>
+        <code class="reg-pattern">Regulation 8 (9 Nutrients)</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer id="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="url(#fGrad)" stroke-width="2"/><path d="M10 20 L16 10 L22 20 Z" fill="url(#fGrad)"/><defs><linearGradient id="fGrad" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#34d399"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+        </div>
+        <span>FSSAI Label Auditor</span>
+      </div>
+      <p class="footer-disclaimer">Explainable Multimodal RAG System for Automated FSSAI Food Label Compliance Auditing. Built with YOLO11n, EasyOCR, ChromaDB, and Deterministic Rules R01–R10.</p>
+      <p class="footer-copy">© 2026 AIES Project · Decision-Support Compliance Copilot</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

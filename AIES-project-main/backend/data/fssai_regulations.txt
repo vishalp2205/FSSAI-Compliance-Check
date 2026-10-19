@@ -1,0 +1,129 @@
+## FSSAI (Food Safety and Standards Authority of India) Labelling and Display Regulations, 2020
+
+### CHAPTER 1: GENERAL PROVISIONS
+
+#### Regulation 1: Short Title and Commencement
+These regulations may be called the Food Safety and Standards (Labelling and Display) Regulations, 2020. They apply to all pre-packaged foods manufactured, imported, or sold in India.
+
+#### Regulation 2: Definitions
+"Label" means any tag, brand, mark, pictorial or other descriptive matter, written, printed, stencilled, marked, embossed, or impressed on, or attached to, a container of food.
+"Pre-packaged food" means food which is placed in a package of any nature, in such a manner that the contents cannot be changed without tampering with it.
+"Principal Display Panel (PDP)" means the part of a label that is most likely to be displayed, presented, shown, or examined under customary conditions of display for sale.
+
+### CHAPTER 2: MANDATORY LABELLING REQUIREMENTS
+
+#### Regulation 3: General Labelling Requirements
+Every pre-packaged food shall carry the following information on the label:
+(a) The name of the food
+(b) List of ingredients
+(c) Nutritional information
+(d) Declaration regarding veg or non-veg
+(e) Declaration regarding food additives
+(f) Name and complete address of the manufacturer or packer
+(g) Net quantity
+(h) Lot/Code/Batch identification
+(i) Date marking and storage instructions
+(j) Instructions for use
+(k) FSSAI logo and license number
+
+#### Regulation 4: FSSAI License Number Requirements
+Every package of food shall bear the FSSAI license number on the label. The FSSAI license number must be exactly 14 digits long. The format is: the first digit indicates whether it is a Central license (digit 1) or State license (digit 2). Digits 2 and 3 represent the state code as per Indian administrative divisions. The remaining 11 digits are the unique identifier assigned by FSSAI. The license number must match the pattern ^[12]\d{13}$. Food Business Operators must display this number prominently on the label along with the FSSAI logo. Non-compliance with license display requirements can result in penalties under Section 55 of the Food Safety and Standards Act, 2006.
+
+#### Regulation 5: Veg and Non-Veg Declaration (Dietary Symbol)
+Every package of food shall bear a declaration in the form of a symbol to indicate whether it is vegetarian or non-vegetarian food. For Vegetarian Food: A green-colored filled circle inside a green-colored square outline. The symbol shall be prominently displayed on the front of the package near the product name. For Non-Vegetarian Food: A brown-colored filled triangle inside a brown-colored square outline. This was updated from the previous circular symbol to a triangular symbol to better differentiate from the vegetarian mark. The minimum size of the symbol depends on the area of the Principal Display Panel. For PDP area up to 100 sq cm, the symbol shall be of minimum 3mm x 3mm. For PDP area above 100 sq cm, the symbol shall be of minimum 5mm x 5mm. Non-vegetarian food includes any article of food which contains whole or part of any animal including birds, freshwater or marine animals, eggs, or products of any animal origin, excluding milk and milk products.
+
+#### Regulation 6: Allergen Declaration
+If any food contains any of the following substances or products thereof, it must be declared on the label. The 8 major allergens as per FSSAI guidelines are:
+1. Cereals containing gluten (wheat, rye, barley, oats, spelt, or their hybridized strains and products thereof)
+2. Crustaceans and products thereof (shrimp, prawn, crab, lobster, crayfish)
+3. Eggs and egg products
+4. Fish and fish products
+5. Peanuts and peanut products (also known as groundnuts)
+6. Soybeans and soybean products
+7. Milk and milk products (including lactose, casein, whey)
+8. Tree nuts and nut products (almonds, cashews, walnuts, pistachios, hazelnuts, macadamia nuts, pecans, Brazil nuts)
+The allergen declaration must be in the form "Contains: [allergen name]" and should be placed immediately after or below the list of ingredients. The allergen names should be in bold or contrasting font to make them clearly visible. If the product may contain traces of allergens due to cross-contamination, a "May contain" statement should be included.
+
+#### Regulation 7: Date Marking
+Every pre-packaged food must include the following date marking:
+(a) Date of manufacture or packing: The date on which the food becomes the product as described. Must be preceded by "Mfg Date", "Mfd", "Date of Manufacture", "Packed on", "Pkd", or "Pkg Date".
+(b) Best Before Date or Use By Date or Expiry Date: 
+- "Best Before" indicates the date until which the food retains its specific properties when properly stored. After this date, the food may still be safe but quality may decline.
+- "Use By Date" indicates the date after which the food should not be consumed as it may pose health risks.
+- "Expiry Date" indicates the date after which the food must not be sold or consumed.
+The date format should be DD/MM/YYYY or DD-MMM-YYYY. For products with a shelf life of more than 3 months, the month and year of manufacture may be declared. Storage conditions must be declared alongside date marking.
+
+#### Regulation 8: Nutritional Information Panel
+Every pre-packaged food shall declare the following nutritional information on the label per 100g or 100ml or per serving:
+(a) Energy value in kilocalories (kcal) or kilojoules (kJ)
+(b) Amounts of protein in grams (g)
+(c) Amounts of carbohydrate in grams (g), including:
+    - Total Sugars in grams (g)
+    - Added Sugars in grams (g), with percentage contribution to RDA
+(d) Amounts of total fat in grams (g), including:
+    - Saturated fat in grams (g)
+    - Trans fat in grams (g)
+(e) Amount of sodium in milligrams (mg)
+The nutritional information must be presented in a tabular format. If space does not permit, a linear format may be used. The serving size must be declared in grams or millilitres along with the number of servings per package. Front-of-Pack labelling is also required for specific nutrients (calories, saturated fat, trans fat, added sugar, sodium) in a prescribed format.
+
+#### Regulation 9: Net Quantity Declaration
+The net quantity must be declared in terms of:
+- Weight for solid foods (grams or kilograms)
+- Volume for liquid foods (millilitres or litres)
+- Number for count-based foods
+The net quantity must be declared on the Principal Display Panel in a prominent location.
+
+#### Regulation 10: Name and Address of Manufacturer
+The name and complete address of the manufacturer, packer, or importer must be declared. For imported foods, the name and address of the importer must be declared along with the FSSAI import license number and the country of origin.
+
+### CHAPTER 3: SPECIFIC PROVISIONS FOR CLAIMS AND DECLARATIONS
+
+#### Regulation 11: Claims
+No claim shall be made that a food product is free from a particular allergen unless it has been verified through testing. Health claims, nutrition claims, and dietary supplement claims are regulated under separate FSSAI guidelines. Misleading claims about the nutritional content or health benefits of food products are prohibited.
+
+### CHAPTER 4: PENALTIES AND ENFORCEMENT
+
+#### Regulation 12: Penalties for Non-Compliance
+Non-compliance with labelling requirements under these regulations may result in:
+- Penalty under Section 52 of the FSS Act: Up to Rs. 5 lakhs for misbranding
+- Penalty under Section 55 of the FSS Act: Up to Rs. 5 lakhs for misleading advertisements
+- Product recall and delisting from marketplaces
+- Suspension or cancellation of FSSAI license
+Food Business Operators are given a reasonable time to comply with new labelling requirements when amendments are introduced.
+
+### CHAPTER 5: AMENDMENTS AND UPDATES
+
+#### Amendment 2022: Non-Vegetarian Symbol Update
+The non-vegetarian symbol has been updated from a brown circle inside a brown square to a brown triangle inside a brown square. This change was introduced to make the distinction between vegetarian and non-vegetarian symbols clearer and more intuitive for consumers.
+
+#### Amendment 2023: Front-of-Pack Labelling
+Mandatory front-of-pack nutritional labelling (FOPNL) has been introduced requiring declaration of calories, saturated fat, trans fat, added sugar, and sodium on the front of the package in a standardized format.
+
+#### Amendment 2024: Digital Labelling
+FSSAI has permitted certain non-critical information to be provided through QR codes or digital means, provided that mandatory information continues to be displayed on the physical label.
+
+### CHAPTER 6: FSSAI (ADVERTISING AND CLAIMS) REGULATIONS, 2018 & 2022
+
+#### Regulation 13: General Principles of Claims
+No food business operator shall make any claim which is misleading, deceptive, or false. Any nutritional claim, health claim, or reduction of disease risk claim must be scientifically substantiated and comply with statutory numerical thresholds per Schedule I and Schedule II.
+
+#### Regulation 14: Nutrition Claims Criteria (Schedule I)
+The following statutory criteria apply to claims on pre-packaged foods:
+1. "Sugar Free": Not more than 0.5g of sugars per 100g or 100ml.
+2. "No Added Sugar": No sugars or ingredients containing added sugars; if naturally occurring sugars exceed 1.5g/100g, label must state "Contains naturally occurring sugars".
+3. "Low Sugar": Not more than 5g of total sugars per 100g for solids, or 2.5g per 100ml for liquids.
+4. "Low Fat": Not more than 3g of fat per 100g for solids, or 1.5g per 100ml for liquids.
+5. "Fat Free": Not more than 0.5g of fat per 100g or 100ml.
+6. "Trans Fat Free": Less than 0.2g of trans fat per 100g or 100ml.
+7. "Low Saturated Fat": Not more than 1.5g of saturated fat per 100g for solids.
+8. "High Protein / Rich in Protein": Protein provides at least 20% of energy or not less than 12g per 100g.
+9. "Low Sodium": Not more than 120mg of sodium per 100g.
+10. "Organic Food Claims": Organic claims require certification under NPOP or PGS-India and mandatory display of the Jaivik Bharat statutory logo per Food Safety and Standards (Organic Foods) Regulations, 2017.
+
+### CHAPTER 7: INDIAN NUTRITION RATING (INR) & HFSS FRAMEWORK
+
+#### Regulation 15: Indian Nutrition Rating (INR) 0.5 to 5.0 Stars
+FSSAI has formulated the Indian Nutrition Rating (INR) system under Front-of-Pack Nutrition Labelling (FOPNL). Food products receive a star rating from 0.5 to 5.0 stars based on their nutritional profile per 100g. Baseline points are assigned for risk nutrients (Energy kJ, Saturated Fat, Total Sugars, Sodium), from which positive points for beneficial components (Protein, Dietary Fiber, Fruits/Vegetables) are deducted. High ratings (3.5 to 5.0 stars) represent healthier options, while low ratings (<2.5 stars) identify nutrient-poor foods.
+
+#### Regulation 16: High in Fat, Sugar, and Salt (HFSS) Thresholds
+Foods exceeding critical statutory thresholds for Saturated Fat (>5g/100g), Total Sugars (>15g/100g), or Sodium (>400mg/100g) are classified as High in Fat, Sugar, or Salt (HFSS). HFSS foods require clear front-of-pack warning indicators and cannot carry misleading health claims.
