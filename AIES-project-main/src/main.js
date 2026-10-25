@@ -14,7 +14,7 @@ import Tesseract from 'tesseract.js';
 import { extractFields, runComplianceAudit } from './compliance-engine.js';
 
 // ---- Config ----
-const API_BASE = 'http://localhost:8000';
+const API_BASE = import.meta.env.VITE_API_BASE ?? (import.meta.env.PROD ? '' : 'http://localhost:8000');
 
 // ---- DOM References ----
 const dropZone = document.getElementById('drop-zone');
