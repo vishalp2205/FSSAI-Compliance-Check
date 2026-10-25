@@ -1,0 +1,16 @@
+node_modules
+dist
+.git
+.gitignore
+.gitattributes
+.env
+.env.*
+**/__pycache__
+**/*.pyc
+.venv
+*.ipynb
+train_*.py
+benchmark_app.py
+FINAL_MINI_PROJECT_REPORT.md
+crop_fssai.jpg
+real_fssai_logo.jpg
